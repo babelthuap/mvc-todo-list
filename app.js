@@ -18,13 +18,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
+// app.use(function(req, res, next) {
+//   res.set({    
+//   })
+//   next();
+// })
 
 // ROUTES
 app.use('/', require('./routes/index'));
-app.use('/hotdogs', require('./routes/hotdogs'));
 app.use('/todos', require('./routes/todos'));
-
-
 
 
 // 404 HANDLER

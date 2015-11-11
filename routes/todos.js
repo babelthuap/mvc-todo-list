@@ -5,6 +5,7 @@ var router = express.Router();
 var Todo = require('../models/todo'); // our Model
 
 
+// responds with the the array of todos
 router.get('/', function(req, res) {
   Todo.find(function(err, todos) {
     if (err) {
@@ -15,11 +16,10 @@ router.get('/', function(req, res) {
   });
 });
 
-
 // accepts a req.body with a key "task", & adds that task to the list
 router.post('/', function(req, res) {
-  var todo = req.body.task;
-  Todo.add(todo, function(err) {
+  var task = req.body.task;
+  Todo.add(task, function(err) {
     if (err) {
       return res.status(400).send(err);
     } else {
@@ -27,7 +27,6 @@ router.post('/', function(req, res) {
     }
   });
 });
-
 
 // accepts a req.body that has a key "task", & toggles that task
 router.put('/', function(req, res) {

@@ -59,7 +59,7 @@ Todo.remove = function(toRemove, cb) {
       // find the task toRemove in todos and delete it
       var tasks = todos.map(item => item.task);
       var i = tasks.indexOf(toRemove);
-      
+
       if (i !== -1) {
         todos.splice(i, 1);
         fs.writeFile('db/todos.json', JSON.stringify(todos), cb);
